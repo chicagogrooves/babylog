@@ -1,0 +1,16 @@
+{
+    "name": "babylog",
+    "version": "0.0.2",
+    "dependencies": {},
+    "devDependencies": {},
+    "repository": {
+        "type": "git",
+        "url": "http://github.com/chicagogrooves/babylog.git"
+    },
+    "scripts": {
+        "start": "meteor -p 3244"
+    },
+    "engines": {
+        "node": ">=0.10.0"
+    }
+}
