@@ -1,4 +1,14 @@
 <template name="feeding">
-    <h1>Feeding Time!</h1>
+    <h1>It's Feeding Time!</h1>
+    <div>
+        Time: {{time}}
+    </div>
+
+    <div>
+        <button class="which" data-which="L">L</button>
+        <button class="which" data-which="R">R</button>
+    </div>
+
+    <button id="btn-end">End</button>
     <a href="{{pathFor 'history'}}">Past Feedings</a>
 </template>
