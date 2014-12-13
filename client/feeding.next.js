@@ -10,10 +10,9 @@ Template.feeding.events({
         Router.go("history")
     },
     "click .which": (e, t) => {
-        let which = e.target.attributes["data-which"].value,
-            obj = {}
+        let obj = {},
+            which = e.target.attributes["data-which"].value
         obj[which] = true
-
         Feedings.update(t.data._id, {$set: obj})
     }
 })

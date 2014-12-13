@@ -1,14 +1,16 @@
 <template name="history">
     <h1>All feedings</h1>
-    <a href="{{pathFor 'feeding'}}">Start Feeding</a>
-    <table>
-        {{#each feeding}}
-        <tr>
-            <td>{{completed}}</td>
-            <td>{{time}}</td>
-            <td>{{duration}}</td>
-            <td>{{sides}}</td>
-        </tr>
-        {{/each}}
-    </table>
+    <div class="main">
+        <a href="{{pathFor 'feeding'}}">Start Feeding</a>
+        <table>
+            {{#each feeding}}
+            <tr>
+                <td>{{completed}}</td>
+                <td>{{time}}</td>
+                <td>{{duration}}</td>
+                <td>{{sides}}</td>
+            </tr>
+            {{/each}}
+        </table>
+    </div>
 </template>
