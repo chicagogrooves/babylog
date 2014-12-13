@@ -1,6 +1,7 @@
 var Feedings = new Mongo.Collection("feedings")
 Feedings.helpers({
-    sides: function () {return (this.L ? "L" : "")+(this.R ? "R" : "")}
+    sides: function () {return (this.L ? "L" : "")+(this.R ? "R" : "")},
+    when: function () {return moment(this.time).calendar()}
 })
 
 var feedingsGoingBack = () =>
