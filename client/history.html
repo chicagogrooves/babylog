@@ -2,7 +2,8 @@
     <h1>All feedings</h1>
     <div class="main">
         <a href="{{pathFor 'feeding'}}">Start Feeding</a>
-        <table class="table">
+        <table class="table table-hover">
+          <tbody>
             {{#each feeding}}
             <tr>
                 <td>{{completed}}</td>
@@ -11,6 +12,7 @@
                 <td>{{sides}}</td>
             </tr>
             {{/each}}
+          </tbody>
         </table>
     </div>
 </template>

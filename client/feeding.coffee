@@ -1,5 +1,5 @@
 Template.feeding.rendered = ->
-  if !Session.get("feeding")
+  if Session.equals("feeding", undefined)
     Session.set "feeding", Feedings.insert
       time: new Date()
 
