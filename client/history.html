@@ -1,10 +1,9 @@
 <template name="history">
-    <h1>All feedings</h1>
+    <h1>Baby's Feeding Log</h1>
     <div class="main">
         <a href="{{pathFor 'feeding'}}">{{startResume}} Feeding</a>
         <table class="table table-hover">
           <thead>
-            <th>Completed</th>
             <th>When</th>
             <th>Duration</th>
             <th>Sides</th>
@@ -12,7 +11,6 @@
           <tbody>
             {{#each feeding}}
             <tr>
-                <td>{{completed}}</td>
                 <td>{{when}}</td>
                 <td>{{duration}}</td>
                 <td>{{sides}}</td>

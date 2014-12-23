@@ -1,13 +1,4 @@
 @Feedings = new Mongo.Collection("feedings")
-Feedings.helpers
-    sides: ->
-      (if @L then "L" else "") + (if @R then "R" else "")
-    when: ->
-      moment(@time).calendar()
-    duration: ->
-      m = Math.ceil(moment.duration(moment(@endTime).diff(moment(@time))).asMinutes())
-      "#{m} minutes"
-
 
 feedingsGoingBack = ->
     Feedings.find {},
