@@ -1,11 +1,12 @@
 Template.feeding.rendered = ->
-  if Session.equals("feeding", undefined)
-    Session.set "feeding", Feedings.insert
-      time: new Date()
+  if SessionAmplify.equals("feeding", undefined)
+    SessionAmplify.set "feeding", Feedings.insert(time: new Date)
 
 Template.feeding.helpers
   active: (which) ->
     if @[which] then "active" else ""
+  currentFeedingId: ->
+    JSON.stringify Feedings.findOne Session.get("feeding")
 
 Template.feeding.events
   "click #btn-end": (e, t) ->

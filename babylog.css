@@ -1,3 +1,7 @@
 button.which {
-  width: 5em; 
+  width: 5em;
+}
+
+pre{
+  background-color: #ddd;
 }
