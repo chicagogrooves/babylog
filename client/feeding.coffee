@@ -5,8 +5,8 @@ Template.feeding.rendered = ->
 Template.feeding.helpers
   active: (which) ->
     if @[which] then "active" else ""
-  currentFeedingId: ->
-    JSON.stringify Feedings.findOne Session.get("feeding")
+  currentFeeding: ->
+    JSON.stringify Feedings.findOne Session.get "feeding"
 
 Template.feeding.events
   "click #btn-end": (e, t) ->
