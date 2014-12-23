@@ -19,6 +19,9 @@ Meteor.atClient ->
     Meteor.subscribe("feedings")
     window.Feedings = Feedings
 
+Meteor.startup ->
+    @Session = @SessionAmplify
+
 Router.route "history",
     data: -> feeding: feedingsGoingBack
 

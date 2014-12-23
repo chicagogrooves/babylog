@@ -1,6 +1,6 @@
 Template.feeding.rendered = ->
-  if SessionAmplify.equals("feeding", undefined)
-    SessionAmplify.set "feeding", Feedings.insert(time: new Date)
+  if Session.equals("feeding", undefined)
+    Session.set "feeding", Feedings.insert(time: new Date)
 
 Template.feeding.helpers
   active: (which) ->
