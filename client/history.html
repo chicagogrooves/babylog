@@ -7,6 +7,7 @@
             <th>When</th>
             <th>Duration</th>
             <th>Sides</th>
+            <th></th>
           </thead>
           <tbody>
             {{#each feeding}}
@@ -14,6 +15,9 @@
                 <td>{{when}}</td>
                 <td>{{duration}}</td>
                 <td>{{sides}}</td>
+                <td>
+                  <button class="deleteButton">X</button>
+                </td>
             </tr>
             {{/each}}
           </tbody>
