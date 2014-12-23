@@ -1,17 +1,22 @@
 <template name="feeding">
+  <div class="container">
     <h1>It's Feeding Time!</h1>
     <div>
         Time: {{when}}
     </div>
 
-    <div>
-        <button class="which btn btn-primary {{active 'L'}}" data-which="L">L</button>
-        <button class="which btn btn-primary {{active 'R'}}" data-which="R">R</button>
+    <div class="row">
+      <button class="col-md-2 which btn btn-primary {{active 'L'}}" data-which="L">L</button>
+      <button class="col-md-2 which btn btn-primary {{active 'R'}}" data-which="R">R</button>
     </div>
 
-    <button id="btn-end">End</button>
+    <div class="row">
+      <button id="btn-end">End</button>
+    </div>
+
     <a href="{{pathFor 'history'}}">Past Feedings</a>
     <pre>
       {{currentFeeding}}
     </pre>
+  </div>
 </template>
