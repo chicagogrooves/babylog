@@ -20,6 +20,7 @@ Meteor.startup ->
     @Session = @SessionAmplify
 
 Router.route "history",
+    path: "/"
     data: -> feeding: feedingsGoingBack
 
 Router.route "feeding",
