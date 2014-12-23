@@ -6,7 +6,6 @@
 meteor-platform
 coffeescript
 iron:router
-mquandalle:harmony
 mrt:define
 insecure
 deanius:at-at
@@ -14,4 +13,4 @@ dburles:collection-helpers
 less
 nemo64:bootstrap
 momentjs:moment
-
+mrt:session-amplify
