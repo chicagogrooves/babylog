@@ -13,6 +13,5 @@ dburles:collection-helpers
 less
 nemo64:bootstrap
 momentjs:moment
-mrt:session-amplify
 fastclick
 houston:admin

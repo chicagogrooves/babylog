@@ -1,6 +1,11 @@
 Template.history.helpers
   startResume: ->
-    if Session.equals("feeding", undefined) or Session.equals("feeding", null)
+    currentFeeding = ->
+        Feedings.find {completed: {$ne: true}},
+            limit: 1
+            sort: [["time", "desc"]]
+
+    if currentFeeding().count() is 0
       "Start"
     else
       "Resume"

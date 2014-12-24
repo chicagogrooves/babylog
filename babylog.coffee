@@ -13,11 +13,8 @@ Meteor.atServer ->
     Meteor.publish "feedings", feedingsGoingBack
 
 Meteor.atClient ->
-    Meteor.subscribe("feedings")
+    Meteor.subscribe "feedings"
     window.Feedings = Feedings
-
-Meteor.startup ->
-    @Session = @SessionAmplify
 
 Router.route "history",
     path: "/"
