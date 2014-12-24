@@ -16,6 +16,9 @@ Meteor.atClient ->
     Meteor.subscribe "feedings"
     window.Feedings = Feedings
 
+Router.configure
+  layoutTemplate: "layout"
+
 Router.route "history",
     path: "/"
     data: -> feeding: feedingsGoingBack
