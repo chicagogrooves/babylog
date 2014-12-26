@@ -16,6 +16,8 @@ Template.feeding.helpers
     if @time
       timer.tick() # makes it reactive
       moment(new Date - @time).format "mm:ss"
+  showBottleParams: ->
+    if @bottleAmount then "" else "hide"
 
 Template.feeding.events
   "click #btn-end": (e, t) ->
@@ -27,6 +29,17 @@ Template.feeding.events
     which = e.target.attributes["data-which"].value
     obj[which] = true
     id = Feedings.insert(time: new Date)
+    #FIXME preserve the old value as well
     Feedings.update id, $set: obj
+    $(".btn-bottle").prop("disabled", true)
     timer.start()
     e.target.blur()
+
+  "click .btn-bottle": (e, t) ->
+    $(".which").prop("disabled", true)
+    $(".bottle-params").show()
+    id = Feedings.insert(time: new Date, bottleAmount: 2.5)
+
+  "click .bottle-ctl": (e,t) ->
+    amt = e.target.attributes["data-amount"].value
+    Feedings.update t.data._id, $inc: {bottleAmount: Number(amt)}

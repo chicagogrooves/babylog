@@ -1,6 +1,9 @@
 Feedings.helpers
-    sides: ->
-      (if @L then "L" else "") + (if @R then "R" else "")
+    detail: ->
+      if @bottleAmount
+        "#{@bottleAmount} oz"
+      else
+        (if @L then "L" else "") + (if @R then "R" else "")
     when: ->
       moment(@time).calendar()
     duration: ->
