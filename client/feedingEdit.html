@@ -1,18 +1,42 @@
 <template name="feedingEdit">
-  <h1>Soon we can edit a feeding</h1>
+  <h1>Edit this feeding</h1>
 
   <div class="row">
     Started at: {{when 'MM/DD/YY hh:mm a'}}
-    Change start:
+    <button class="btn btn-primary start-ctl start-up" data-amount="5">+</button>
+    <button class="btn btn-primary start-ctl start-down" data-amount="-5">-</button>
+
+    <span id="startAdjust">
+    Or, set start:
     <select name="newStart" class="newStart">
       {{#each startAdjusterOptions}}
       <option value="{{value}}">{{text}}</option>
       {{/each}}
     </select>
+  </span>
+
   </div>
 
   <div class="row">
-    Elapsed: {{elapsed}}
+    Ended at: {{ended 'MM/DD/YY hh:mm a'}}
+    <button class="btn btn-primary end-ctl start-up" data-amount="5">+</button>
+    <button class="btn btn-primary end-ctl start-down" data-amount="-5">-</button>
+  </div>
+
+  <div class="row" >
+    Duration: <strong>{{duration}}</strong>
+  </div>
+
+  <div class="row {{showBottleParams}}">
+    <span class="bottle-params">
+      <input name="amount" class="bottleAmount" value="{{bottleAmount}}"/> oz
+      <button class="btn btn-primary bottle-ctl bottle-up" data-amount=".5">+</button>
+      <button class="btn btn-primary bottle-ctl bottle-down" data-amount="-.5">-</button>
+    </span>
+  </div>
+
+  <div class="row">
+    <a href="{{pathFor 'history'}}">Back to Feedings</a>
   </div>
 
 </template>
