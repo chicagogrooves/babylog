@@ -11,4 +11,4 @@ Router.route "feeding",
 
 Router.route "feedingEdit",
     path: "/feeding/:_id/edit"
-    data: -> Feedings.find(@params._id)
+    data: -> Feedings.findOne(@params._id)
