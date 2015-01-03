@@ -4,8 +4,6 @@ Feedings.helpers
         "#{@bottleAmount} oz"
       else
         (if @L then "L" else "") + (if @R then "R" else "")
-    when: ->
-      moment(@time).calendar()
     duration: ->
       unless @endTime
         "(in progress)"
