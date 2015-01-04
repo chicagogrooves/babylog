@@ -13,5 +13,6 @@ Feedings.helpers
     unless @endTime
       "(in progress)"
     else
-      m = Math.ceil(moment.duration(moment(@endTime).diff(moment(@time))).asMinutes())
+      [start, end] = [moment(@time), moment(@endTime)]
+      m = Math.ceil moment.duration(end.diff(start)).asMinutes()
       "#{m} minutes"

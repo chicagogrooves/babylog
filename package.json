@@ -8,7 +8,8 @@
         "url": "http://github.com/chicagogrooves/babylog.git"
     },
     "scripts": {
-        "start": "meteor -p 3244"
+        "start": "meteor -p 3244",
+        "test": "coffeelint ."
     },
     "engines": {
         "node": ">=0.10.0"
