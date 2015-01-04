@@ -23,24 +23,24 @@ Template.feedingEdit.helpers
     if @bottleAmount then "" else "hide"
 
 timeSetter = (timeField) ->
-  (e, t) ->
+  (e) ->
     amt = e.target.attributes["data-amount"].value
-    newTime = moment(t.data.time).add({minutes: amt})
-    do (setter = {}) ->
-      setter["#{timeField}"] = newTime.toDate()
-      Feedings.update t.data._id, $set: setter
+    newTime = moment(@[timeField]).add({minutes: amt})
+    setter = {}
+    setter[timeField] = newTime.toDate()
+    Feedings.update @_id, $set: setter
 
 Template.feedingEdit.events
   "click .start-ctl": timeSetter("time")
   "click .end-ctl": timeSetter("endTime")
 
-  "click .bottle-ctl": (e,t) ->
+  "click .bottle-ctl": (e) ->
     amt = e.target.attributes["data-amount"].value
-    Feedings.update t.data._id, $inc: {bottleAmount: Number(amt)}
+    Feedings.update @._id, $inc: {bottleAmount: Number(amt)}
 
-  "change .newStart": (e, t) ->
+  "change .newStart": (e) ->
     [h, m] = $(e.target).val().split("|")
-    newTime = moment(t.data.time).startOf("day").add
+    newTime = moment(@time).startOf("day").add
       hours: h
       minutes: m
-    Feedings.update t.data._id, $set: {time: newTime.toDate()}
+    Feedings.update @_id, $set: {time: newTime.toDate()}

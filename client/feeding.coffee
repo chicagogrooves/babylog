@@ -20,11 +20,11 @@ Template.feeding.helpers
     if @bottleAmount then "" else "hide"
 
 Template.feeding.events
-  "click #btn-end": (e, t) ->
-    Feedings.update t.data._id, $set: {endTime: new Date, completed: true}
+  "click #btn-end": (e) ->
+    Feedings.update @._id, $set: {endTime: new Date, completed: true}
     Router.go "history"
 
-  "click .which": (e, t) ->
+  "click .which": (e) ->
     obj = {}
     which = e.target.attributes["data-which"].value
     obj[which] = true
@@ -35,11 +35,11 @@ Template.feeding.events
     timer.start()
     e.target.blur()
 
-  "click .btn-bottle": (e, t) ->
+  "click .btn-bottle": (e) ->
     $(".which").prop("disabled", true)
     $(".bottle-params").show()
     id = Feedings.insert(time: new Date, bottleAmount: 2.5)
 
-  "click .bottle-ctl": (e,t) ->
+  "click .bottle-ctl": (e) ->
     amt = e.target.attributes["data-amount"].value
-    Feedings.update t.data._id, $inc: {bottleAmount: Number(amt)}
+    Feedings.update @._id, $inc: {bottleAmount: Number(amt)}
