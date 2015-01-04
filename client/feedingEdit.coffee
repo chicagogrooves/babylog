@@ -1,13 +1,14 @@
 Template.feedingEdit.helpers
   startAdjusterOptions: ->
-    closest = moment(@time).startOf("hour")
-    opts = []
+    optionFor = (t) ->
+      text: t.format("h:mm a")
+      value: "#{h}|#{m}"
+
+    opts = [(optionFor moment @time)]
     for h in [0..23]
       for m in [0, 15, 30, 45]
-        t = moment({hours: h, minutes: m})
-        opts.push
-          text: t.format("h:mm a")
-          value: "#{h}|#{m}"
+        t = moment hours: h, minutes: m
+        opts.push optionFor t
     opts
 
   when: (fmt="calendar") ->
