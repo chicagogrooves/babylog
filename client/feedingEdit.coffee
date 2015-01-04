@@ -22,17 +22,17 @@ Template.feedingEdit.helpers
   showBottleParams: ->
     if @bottleAmount then "" else "hide"
 
-
-Template.feedingEdit.events
-  "click .start-ctl": (e, t) ->
+timeSetter = (timeField) ->
+  (e, t) ->
     amt = e.target.attributes["data-amount"].value
     newTime = moment(t.data.time).add({minutes: amt})
-    Feedings.update t.data._id, $set: {time: newTime.toDate()}
+    do (setter = {}) ->
+      setter["#{timeField}"] = newTime.toDate()
+      Feedings.update t.data._id, $set: setter
 
-  "click .end-ctl": (e, t) ->
-    amt = e.target.attributes["data-amount"].value
-    newTime = moment(t.data.endTime).add({minutes: amt})
-    Feedings.update t.data._id, $set: {endTime: newTime.toDate()}
+Template.feedingEdit.events
+  "click .start-ctl": timeSetter("time")
+  "click .end-ctl": timeSetter("endTime")
 
   "click .bottle-ctl": (e,t) ->
     amt = e.target.attributes["data-amount"].value
