@@ -9,7 +9,8 @@
     },
     "scripts": {
         "start": "meteor -p 3244",
-        "test": "coffeelint ."
+        "test": "coffeelint .",
+        "deploy": "meteor deploy babylog.meteor.com"
     },
     "engines": {
         "node": ">=0.10.0"
