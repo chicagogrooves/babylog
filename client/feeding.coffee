@@ -38,7 +38,7 @@ Template.feeding.events
   "click .btn-bottle": (e) ->
     $(".which").prop("disabled", true)
     $(".bottle-params").show()
-    id = Feedings.insert(time: new Date, bottleAmount: 2.5)
+    id = Feedings.insert(time: new Date, bottleAmount: 1.0)
 
   "click .bottle-ctl": (e) ->
     amt = e.target.attributes["data-amount"].value
