@@ -1,7 +1,14 @@
 @Feedings = new Mongo.Collection("feedings")
+@DaysAtATime = 2
 
-@feedingsGoingBack = ->
-  Feedings.find {},
+@feedingsGoingBack = (daysBack = DaysAtATime) ->
+  howfar = moment(new Date)
+    .startOf("day")
+    .subtract
+      days: daysBack-1
+    .toDate()
+
+  Feedings.find {time: {$gt: howfar}},
     sort: [["time", "desc"]]
 
 @currentFeeding = ->
