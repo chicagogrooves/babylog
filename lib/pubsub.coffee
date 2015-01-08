@@ -1,12 +1,13 @@
 @Feedings = new Mongo.Collection("feedings")
 @DaysAtATime = 2
+@tzAdjust = 19
 
 @feedingsGoingBack = (daysBack = DaysAtATime) ->
   howfar = moment(new Date)
     .startOf("day")
     .subtract
       days: daysBack-1
-      hours: 18 # needed for prod only, cuz - timezones?
+      hours: tzAdjust # needed for prod only, cuz - timezones?
     .toDate()
 
   Feedings.find {time: {$gt: howfar}},
