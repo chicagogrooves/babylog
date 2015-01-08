@@ -6,6 +6,7 @@
     .startOf("day")
     .subtract
       days: daysBack-1
+      hours: 18 # needed for prod only, cuz - timezones?
     .toDate()
 
   Feedings.find {time: {$gt: howfar}},
