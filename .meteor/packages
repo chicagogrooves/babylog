@@ -16,4 +16,6 @@ momentjs:moment
 fastclick
 houston:admin
 frozeman:reactive-timer
-appcache
+accounts-ui
+accounts-google
+accounts-twitter
