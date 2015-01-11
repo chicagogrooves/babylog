@@ -28,7 +28,7 @@ Template.feeding.events
     obj = {}
     which = e.target.attributes["data-which"].value
     obj[which] = true
-    id = Feedings.insert(time: new Date)
+    id = Feedings.insert time: new Date, users:[Meteor.userId()]
     #FIXME preserve the old value as well
     Feedings.update id, $set: obj
     $(".btn-bottle").prop("disabled", true)
@@ -38,7 +38,7 @@ Template.feeding.events
   "click .btn-bottle": (e) ->
     $(".which").prop("disabled", true)
     $(".bottle-params").show()
-    id = Feedings.insert(time: new Date, bottleAmount: 1.0)
+    id = Feedings.insert time: new Date, bottleAmount: 1.0, users:[Meteor.userId()]
 
   "click .bottle-ctl": (e) ->
     amt = e.target.attributes["data-amount"].value
