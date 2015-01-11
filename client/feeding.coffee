@@ -1,3 +1,10 @@
+newFeeding = (fields) ->
+  family = Meteor.user().profile.familyMembers || []
+  family.push Meteor.userId()
+  fields.users = family
+  fields.time = new Date
+  Feedings.insert fields
+
 timer = undefined
 
 Template.feeding.created = ->
@@ -25,20 +32,20 @@ Template.feeding.events
     Router.go "history"
 
   "click .which": (e) ->
-    obj = {}
+    fields = {}
     which = e.target.attributes["data-which"].value
-    obj[which] = true
-    id = Feedings.insert time: new Date, users:[Meteor.userId()]
-    #FIXME preserve the old value as well
-    Feedings.update id, $set: obj
-    $(".btn-bottle").prop("disabled", true)
+    fields[which] = true
+    id = newFeeding fields
+    $(".btn-bottle, .which").prop("disabled", true)
+    $(e.target).prop("disabled", false)
     timer.start()
     e.target.blur()
 
   "click .btn-bottle": (e) ->
-    $(".which").prop("disabled", true)
+    $(".btn-bottle, .which").prop("disabled", true)
+    $(e.target).prop("disabled", false)
     $(".bottle-params").show()
-    id = Feedings.insert time: new Date, bottleAmount: 1.0, users:[Meteor.userId()]
+    id = newFeeding bottleAmount: 2.0
 
   "click .bottle-ctl": (e) ->
     amt = e.target.attributes["data-amount"].value

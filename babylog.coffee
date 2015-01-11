@@ -3,7 +3,9 @@ Router.configure
 
 Router.route "history",
     path: "/"
-    data: -> feedings: Feedings.find()
+    data: ->
+      feedings:
+        Feedings.find {}, sort: [["time", "desc"]]
 
 Router.route "feeding",
     path: "/feeding/new"
