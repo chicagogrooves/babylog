@@ -16,7 +16,13 @@ Meteor.atServer ->
         hours: tzAdjust # needed for prod only, cuz - timezones?
       .toDate()
 
-    Feedings.find({time: {$gt: howfar}, users: {$in: [@userId]}})
+    Feedings.find
+      time:
+        $gt: howfar
+      users:
+        $in:
+          [@userId]
+    , sort: [["time", "desc"]]
 
 Meteor.atClient ->
   Meteor.subscribe "feedings"
