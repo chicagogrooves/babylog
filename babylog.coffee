@@ -3,7 +3,7 @@ Router.configure
 
 Router.route "history",
     path: "/"
-    data: -> feedings: feedingsGoingBack
+    data: -> feedings: Feedings.find()
 
 Router.route "feeding",
     path: "/feeding/new"
