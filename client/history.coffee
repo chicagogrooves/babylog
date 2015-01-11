@@ -18,10 +18,6 @@ Template.history.helpers
 
 Template.history.events
 
-  "click .deleteButton": (e) ->
-    if confirm("Delete this feeding?")
-      Feedings.remove(@._id)
-
   "click tr:first-child": (e) ->
     if currentFeeding().count() > 0
       Router.go "feeding"

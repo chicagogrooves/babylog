@@ -34,6 +34,10 @@ timeSetter = (timeField) ->
 Template.feedingEdit.events
   "click .start-ctl": timeSetter("time")
   "click .end-ctl": timeSetter("endTime")
+  "click .deleteButton": (e) ->
+    if confirm("Delete this feeding?")
+      Feedings.remove(@._id)
+      Router.go "history"
 
   "click .bottle-ctl": (e) ->
     amt = e.target.attributes["data-amount"].value
