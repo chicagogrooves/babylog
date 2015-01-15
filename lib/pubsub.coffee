@@ -17,8 +17,8 @@ Meteor.atServer ->
       .toDate()
 
     Feedings.find
-      time:
-        $gt: howfar
+      # time:
+      #   $gt: howfar
       users:
         $in:
           [@userId]

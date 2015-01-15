@@ -24,7 +24,7 @@ Template.history.helpers
     allDaySlot: false
     events:
       Feedings.find().fetch()
-        .filter (f) -> f.completed
+#        .filter (f) -> f.completed
         .map (f) ->
           start: f.time
           end: f.endTime
