@@ -3,6 +3,8 @@ Router.configure
 
 Router.route "history",
     path: "/"
+    waitOn: ->
+      Meteor.subscribe "feedings"
     data: ->
       feedings:
         Feedings.find {}, sort: [["time", "desc"]]

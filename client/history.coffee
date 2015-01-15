@@ -20,16 +20,17 @@ Template.history.helpers
     height: "600px"
     foo: "bar"
     header:
-      left: ''
-      center: ''
-      right:  'today prev,next'
-    events: Feedings.find().fetch().map (f) ->
-      start: f.time
-      end: f.endTime
-      title: f.detail()
-      id: f._id
+      left: ""
+      center: ""
+      right:  "today prev,next"
+    events:
+      Feedings.find().fetch().map (f) ->
+        start: f.time
+        end: f.endTime
+        title: f.detail()
+        id: f._id
     eventClick: (e) ->
-      Router.go 'feedingEdit', _id: e.id
+      Router.go "feedingEdit", _id: e.id
       console.dir(e)
 
 Template.history.events

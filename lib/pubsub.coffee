@@ -23,6 +23,3 @@ Meteor.atServer ->
         $in:
           [@userId]
     , sort: [["time", "desc"]]
-
-Meteor.atClient ->
-  Meteor.subscribe "feedings"
