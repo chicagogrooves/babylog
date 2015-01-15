@@ -17,12 +17,14 @@ Template.history.helpers
 
   calendarOptions: ->
     defaultView: "agendaWeek" #"agendaWeek"
-    height: "600px"
-    foo: "bar"
     header:
       left: ""
       center: ""
       right:  "today prev,next"
+    aspectRatio: .66
+    views:
+      agenda:
+        allDaySlot: false
     events:
       Feedings.find().fetch().map (f) ->
         start: f.time
