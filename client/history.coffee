@@ -22,9 +22,7 @@ Template.history.helpers
       center: ""
       right:  "today prev,next"
     aspectRatio: .66
-    views:
-      agenda:
-        allDaySlot: false
+    allDaySlot: false
     events:
       Feedings.find().fetch().map (f) ->
         start: f.time
