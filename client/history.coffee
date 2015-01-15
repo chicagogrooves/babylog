@@ -15,9 +15,23 @@ Template.history.helpers
     timer.tick()
     moment(@time).calendar()
 
+  calendarOptions: ->
+    defaultView: "agendaWeek" #"agendaWeek"
+    height: "600px"
+    foo: "bar"
+    header:
+      left: ''
+      center: ''
+      right:  'today prev,next'
+    events: Feedings.find().fetch().map (f) ->
+      start: f.time
+      end: f.endTime
+      title: f.detail()
+      id: f._id
+    eventClick: (e) ->
+      Router.go 'feedingEdit', _id: e.id
+      console.dir(e)
 
 Template.history.events
-
-  "click tr:first-child": (e) ->
-    if currentFeeding().count() > 0
-      Router.go "feeding"
+  "click .btn-start": (e) ->
+    Router.go "feeding"

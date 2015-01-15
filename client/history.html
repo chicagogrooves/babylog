@@ -1,30 +1,7 @@
 <template name="history">
     <h1>Baby's Feeding Log</h1>
     <div class="main">
-        <a href="{{pathFor 'feeding'}}">{{startResume}} Feeding</a>
-        <table class="table table-hover">
-          <thead>
-            <th>When</th>
-            <th>Duration</th>
-            <th>Detail</th>
-            <th></th>
-          </thead>
-          <tbody>
-            {{#each feedings}}
-            <tr>
-                <td>{{when}}</td>
-                <td>{{duration}}</td>
-                <td>{{detail}}</td>
-                <td>
-                  <a href="{{pathFor 'feedingEdit' _id}}">Edit</a>
-                </td>
-            </tr>
-            {{/each}}
-          </tbody>
-        </table>
-        <div class="infiniteScroll">
-          <!-- TODO implement scroll per http://www.meteorpedia.com/read/Infinite_Scrolling -->
-          <span class="message">Loading ..</span>
-        </div>
+        <button class="btn btn-primary btn-start">{{startResume}} Feeding</button>
+        {{> fullcalendar calendarOptions}}
     </div>
 </template>

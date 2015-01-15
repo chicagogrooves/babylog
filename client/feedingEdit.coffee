@@ -49,3 +49,6 @@ Template.feedingEdit.events
       hours: h
       minutes: m
     Feedings.update @_id, $set: {time: newTime.toDate()}
+
+  "click .btn-save": (e) ->
+    Router.go "history"

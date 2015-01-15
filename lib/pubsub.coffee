@@ -1,5 +1,5 @@
 @Feedings = new Mongo.Collection("feedings")
-@DaysAtATime = 2
+@DaysAtATime = 7
 @tzAdjust = 19
 
 @currentFeeding = ->
@@ -17,8 +17,8 @@ Meteor.atServer ->
       .toDate()
 
     Feedings.find
-      time:
-        $gt: howfar
+      # time:
+      #   $gt: howfar
       users:
         $in:
           [@userId]
