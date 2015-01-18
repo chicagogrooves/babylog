@@ -27,6 +27,9 @@ Template.feeding.helpers
     if @bottleAmount then "" else "hide"
 
 Template.feeding.events
+  "click .btnHistory": ->
+    Router.go "history"
+
   "click #btn-end": (e) ->
     Feedings.update @._id, $set: {endTime: new Date, completed: true}
     Router.go "history"
