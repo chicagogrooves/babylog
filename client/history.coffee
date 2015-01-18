@@ -27,7 +27,7 @@ Template.history.helpers
 #        .filter (f) -> f.completed
         .map (f) ->
           start: f.time
-          end: f.endTime
+          end: f.displayEndTime()
           title: f.detail()
           id: f._id
     eventClick: (e) ->

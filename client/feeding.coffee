@@ -1,5 +1,5 @@
 newFeeding = (fields) ->
-  family = Meteor.user().profile.familyMembers || []
+  family = Meteor.user().profile?.familyMembers || []
   family.push Meteor.userId()
   fields.users = family
   fields.time = new Date

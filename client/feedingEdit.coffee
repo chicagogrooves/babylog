@@ -34,6 +34,10 @@ timeSetter = (timeField) ->
 Template.feedingEdit.events
   "click .start-ctl": timeSetter("time")
   "click .end-ctl": timeSetter("endTime")
+
+  "click .btnHistory": ->
+    Router.go "history"
+
   "click .deleteButton": (e) ->
     if confirm("Delete this feeding?")
       Feedings.remove(@._id)

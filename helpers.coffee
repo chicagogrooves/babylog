@@ -9,10 +9,17 @@ Feedings.helpers
       "#{@bottleAmount} oz"
     else
       (if @L then "L" else "") + (if @R then "R" else "")
+  minuteDuration: ->
+    if @endTime
+      [start, end] = [moment(@time), moment(@endTime)]
+      Math.ceil moment.duration(end.diff(start)).asMinutes()
+  displayEndTime: ->
+    if @minuteDuration() >= 20
+      @endTime
+    else
+      moment(@time).add(minutes: 20).toDate()
   duration: ->
     unless @endTime
       "(in progress)"
     else
-      [start, end] = [moment(@time), moment(@endTime)]
-      m = Math.ceil moment.duration(end.diff(start)).asMinutes()
-      "#{m} minutes"
+      "#{@minuteDuration()} minutes"
