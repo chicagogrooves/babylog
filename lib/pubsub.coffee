@@ -22,7 +22,7 @@ Meteor.atServer ->
       users:
         $in:
           [@userId]
-    , sort: [["time", "desc"]]
+    , sort: [["time", "desc"]], limit: 128 # hack for speed :/
 
 Meteor.atClient ->
   Meteor.subscribe "feedings"
