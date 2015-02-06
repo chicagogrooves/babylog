@@ -36,7 +36,7 @@ Template.feeding.events
 
   "click .which": (e) ->
     fields = {}
-    which = e.target.attributes["data-which"].value
+    which = e.target.data("which")
     fields[which] = true
     id = newFeeding fields
     $(".btn-bottle, .which").prop("disabled", true)
@@ -51,5 +51,5 @@ Template.feeding.events
     id = newFeeding bottleAmount: 2.0
 
   "click .bottle-ctl": (e) ->
-    amt = e.target.attributes["data-amount"].value
+    amt = e.target.data("amount")
     Feedings.update @._id, $inc: {bottleAmount: Number(amt)}

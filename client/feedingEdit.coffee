@@ -25,7 +25,7 @@ Template.feedingEdit.helpers
 
 timeSetter = (timeField) ->
   (e) ->
-    amt = e.target.attributes["data-amount"].value
+    amt = e.target.data("amount")
     newTime = moment(@[timeField]).add({minutes: amt})
     setter = {}
     setter[timeField] = newTime.toDate()
@@ -44,7 +44,7 @@ Template.feedingEdit.events
       Router.go "history"
 
   "click .bottle-ctl": (e) ->
-    amt = e.target.attributes["data-amount"].value
+    amt = e.target.data("amount")
     Feedings.update @._id, $inc: {bottleAmount: Number(amt)}
 
   "change .newStart": (e) ->
