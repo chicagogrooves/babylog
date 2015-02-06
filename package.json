@@ -11,7 +11,8 @@
         "start": "meteor -p 3244",
         "test": "coffeelint .",
         "deploy": "meteor deploy babylog.meteor.com",
-        "demo": "meteor deploy babylog-demo.meteor.com"
+        "demo": "meteor deploy babylog-demo.meteor.com",
+        "update": "git reset --hard HEAD; meteor update; git add .; git commit -m 'Meteor Update'"
     },
     "engines": {
         "node": ">=0.10.0"
