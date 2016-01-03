@@ -3,7 +3,6 @@
 # 'meteor add' and 'meteor remove' will edit this file for you,
 # but you can also edit it by hand.
 
-meteor-platform
 coffeescript
 iron:router
 mrt:define
@@ -24,4 +23,17 @@ accounts-ui
 accounts-google
 accounts-base
 
-houston:admin
+standard-minifiers
+meteor-base
+mobile-experience
+mongo
+blaze-html-templates
+session
+jquery
+tracker
+logging
+reload
+random
+ejson
+spacebars
+check
